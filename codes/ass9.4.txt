@@ -1,0 +1,29 @@
+name = input("Enter file:")
+fh = open(name)
+
+words = list()
+
+for line in fh:
+    if not line.startswith("From:") : continue
+    line = line.split()
+    words.append(line[1])
+
+
+    
+count = dict()        
+for key in words:
+            count[key] = count.get(key,0)+1
+
+mxc= None
+mxw = None
+for key,value in count.items():
+    if mxc is None or value > mxc:
+        mxw = key
+        mxc = value
+        
+print(mxw,mxc)
+        
+        
+        
+
+        

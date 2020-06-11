@@ -1,0 +1,21 @@
+name = input("Enter file:")
+fh = open(name)
+counts = dict()
+for line in fh:
+	line = line.rstrip()
+	if line.startswith('From '):
+		words= line.split()
+		h = words[5]
+		k = h.split(':')
+		counts[k[0]]=counts.get(k[0],0)+1
+        
+lst = list()
+for key,val in counts.items():
+	newtup = (key,val)
+	lst.append(newtup)
+    
+lst = sorted(lst)
+    
+for val,key in lst[:]:
+	print(val,key)
+                    

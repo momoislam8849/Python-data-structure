@@ -1,0 +1,17 @@
+# Use the file name mbox-short.txt as the file name
+fname = input("Enter file name: ")
+fh = open(fname)
+count = 0
+o=0
+for line in fh:
+    line = line.rstrip()
+    if not line.startswith("X-DSPAM-Confidence:") : continue
+    count = count+1
+    ipos = line.find(':')
+    v = line[ipos+1:]
+    h = float(v)
+    o = o+h;
+print(count)
+print(o)
+n = o/count;
+print(n)
